@@ -4,16 +4,16 @@ import java.util.Scanner;
 
 public class JavaChallenge {
 
-    public static void apresentaDadosCliente(){
-        System.out.println("""
-                           \n*******************************************************
-                           Dados iniciais do cliente:
-                           
-                           Nome:            Jacqueline Oliveira
-                           Tipo conta:      Corrente
-                           Saldo inicial:   R$ 2500,00
-                           *******************************************************
-                           """);
+    public static void apresentaDadosCliente(String nome, String tipoConta, double saldo){
+        System.out.println(String.format("""
+                                         \n*******************************************************
+                                         Dados iniciais do cliente:
+                                         
+                                         Nome:            %s
+                                         Tipo conta:      %s
+                                         Saldo inicial:   R$ %.2f
+                                         *******************************************************
+                                         """, nome, tipoConta, saldo));
     }
 
     public static void exibeMenu(){
@@ -69,10 +69,13 @@ public class JavaChallenge {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        String nome = "Jacqueline Oliveira";
+        String tipoConta = "Corrente";
         double saldo = 2500;
+
         int opcaoDesejada;
 
-        apresentaDadosCliente();
+        apresentaDadosCliente(nome,tipoConta,saldo);
 
         do{
             exibeMenu();
@@ -90,6 +93,9 @@ public class JavaChallenge {
                 case 3:
                     saldo = realizarTransferencia(saldo, scanner);
                     System.out.println(String.format("\nO saldo atualizado R$%.2f", saldo));
+                    break;
+                case 4:
+                    System.out.println("\nPrograma encerrado...");
                     break;
                 default:
                     System.out.println("Opção inválida!");

@@ -16,11 +16,11 @@ public class JavaChallenge {
                            """);
     }
 
-    public static void apresentaOperacoesDisponiveis(){
+    public static void exibeMenu(){
         System.out.println("""
                            \nOperações
                            
-                           1 - Consultar saldos
+                           1 - Consultar saldo
                            2 - Receber valor
                            3 - Transferir valor
                            4 - Sair
@@ -37,6 +37,35 @@ public class JavaChallenge {
         return valorInformado;
     }
 
+    public static double receberTransferencia(double saldoAtual, Scanner scanner){
+
+        double novoSaldo;
+        double valorTransferencia;
+
+        valorTransferencia = lerValor("Informe o valor a receber:",scanner);
+
+        novoSaldo = saldoAtual + valorTransferencia;
+
+        return novoSaldo;
+    }
+
+    public static double realizarTransferencia(double saldoAtual, Scanner scanner){
+
+        double novoSaldo;
+        double valorTransferencia;
+
+        valorTransferencia = lerValor("Informe o valor que deseja transferir:",scanner);
+
+        if(saldoAtual < valorTransferencia){
+            novoSaldo = saldoAtual;
+            System.out.println("\nNão há saldo suficiente para fazer essa transferência.");
+        } else {
+            novoSaldo = saldoAtual - valorTransferencia;
+        }
+
+        return novoSaldo;
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -46,7 +75,8 @@ public class JavaChallenge {
         apresentaDadosCliente();
 
         do{
-            apresentaOperacoesDisponiveis();
+            exibeMenu();
+
             opcaoDesejada = lerValor("Digite a opção desejada:", scanner);
 
             switch (opcaoDesejada) {
@@ -54,14 +84,19 @@ public class JavaChallenge {
                     System.out.println(String.format("\nO saldo atual é R$%.2f", saldo));
                     break;
                 case 2:
-                    System.out.println("Valor invalido!");
+                    saldo = receberTransferencia(saldo, scanner);
+                    System.out.println(String.format("\nO saldo atualizado R$%.2f", saldo));
+                    break;
+                case 3:
+                    saldo = realizarTransferencia(saldo, scanner);
+                    System.out.println(String.format("\nO saldo atualizado R$%.2f", saldo));
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
             }
 
 
         } while(opcaoDesejada != 4);
-
-
-
 
     }
 }

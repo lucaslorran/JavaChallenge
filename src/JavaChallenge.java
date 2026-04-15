@@ -19,8 +19,8 @@ public class JavaChallenge {
                            \nOperações
                            
                            1 - Consultar saldo
-                           2 - Receber valor
-                           3 - Transferir valor
+                           2 - Receber
+                           3 - Transferir
                            4 - Sair
                            """);
     }
@@ -35,7 +35,7 @@ public class JavaChallenge {
         return valorInformado;
     }
 
-    public static double receberTransferencia(double saldoAtual, Scanner scanner){
+    public static double depositar(double saldoAtual, Scanner scanner){
 
         double novoSaldo;
         double valorTransferencia;
@@ -47,7 +47,7 @@ public class JavaChallenge {
         return novoSaldo;
     }
 
-    public static double realizarTransferencia(double saldoAtual, Scanner scanner){
+    public static double transferir(double saldoAtual, Scanner scanner){
 
         double novoSaldo;
         double valorTransferencia;
@@ -89,11 +89,11 @@ public class JavaChallenge {
                     exibirSaldo(saldo);
                     break;
                 case 2:
-                    saldo = receberTransferencia(saldo, scanner);
+                    saldo = depositar(saldo, scanner);
                     exibirSaldo(saldo);
                     break;
                 case 3:
-                    saldo = realizarTransferencia(saldo, scanner);
+                    saldo = transferir(saldo, scanner);
                     exibirSaldo(saldo);
                     break;
                 case 4:

@@ -1,3 +1,5 @@
+package io.github.lucaslorran.javachallenge.modelos;
+
 import java.util.Scanner;
 
 public class JavaChallenge {

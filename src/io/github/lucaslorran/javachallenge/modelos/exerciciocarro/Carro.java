@@ -1,4 +1,4 @@
-package io.github.lucaslorran.javachallenge.modelos;
+package io.github.lucaslorran.javachallenge.modelos.exerciciocarro;
 
 public class Carro {
 

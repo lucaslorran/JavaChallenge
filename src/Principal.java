@@ -1,13 +1,12 @@
-import io.github.lucaslorran.javachallenge.modelos.ModeloCarro;
+import io.github.lucaslorran.javachallenge.modelos.exercicioconversormoeda.ConversorMoeda;
 
 public class Principal {
 
-    public static void main (String [] args){
+    public static void main (String[] args){
 
-        ModeloCarro bmw = new ModeloCarro();
+        ConversorMoeda conversorMoeda = new ConversorMoeda();
+        conversorMoeda.converterDolarParaReal(50);
 
-        bmw.setModelo("Sedan");
-        bmw.definirPrecos(150, 39000, 35000);
-        bmw.exibirInfo();
     }
+
 }

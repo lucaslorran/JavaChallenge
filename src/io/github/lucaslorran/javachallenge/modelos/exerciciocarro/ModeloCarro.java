@@ -1,6 +1,6 @@
-package io.github.lucaslorran.javachallenge.modelos;
+package io.github.lucaslorran.javachallenge.modelos.exerciciocarro;
 
-public class ModeloCarro extends Carro{
+public class ModeloCarro extends Carro {
 
 
     /*
